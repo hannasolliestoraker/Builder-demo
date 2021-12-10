@@ -2,7 +2,6 @@ import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 import { useRouter } from 'next/router'
 import { BuilderComponent, Builder, builder } from '@builder.io/react'
 import DefaultErrorPage from 'next/error'
-import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import '@builder.io/widgets';
 import FeaturedCategoryBlock from '../components/categoryBlock'

@@ -1,6 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 import { Image as BuilderImage } from "@builder.io/react";
+import { Builder } from "@builder.io/react";
 
 export type FeaturedCategoryProps = Omit<
   React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
@@ -83,3 +84,39 @@ export const FeaturedCategoryBlock = ({
 };
 
 export default FeaturedCategoryBlock;
+
+Builder.registerComponent(FeaturedCategoryBlock, {
+  name: "category-block",
+  inputs: [
+    {
+      name: "heading",
+      type: "string",
+    },
+    {
+      name: "paragraph",
+      type: "string",
+    },
+    {
+      name: "link",
+      type: "string",
+    },
+    {
+      name: "linkText",
+      type: "string",
+    },
+    {
+      name: "color",
+      type: "string",
+    },
+    {
+      name: "featuredImage",
+      type: "file",
+      allowedFileTypes: ["jpeg", "png"],
+    },
+    {
+      name: "position",
+      type: "string",
+      enum: ["left", "right"],
+    },
+  ],
+});
