@@ -1,7 +1,6 @@
 import React from "react";
 import classNames from "classnames";
 import { Image as BuilderImage } from "@builder.io/react";
-import { Builder } from "@builder.io/react";
 
 export type FeaturedCategoryProps = Omit<
   React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
