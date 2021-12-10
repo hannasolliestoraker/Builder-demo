@@ -2,8 +2,10 @@ import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 import { useRouter } from 'next/router'
 import { BuilderComponent, Builder, builder } from '@builder.io/react'
 import DefaultErrorPage from 'next/error'
+import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import '@builder.io/widgets';
+import FeaturedCategoryBlock from '../components/categoryBlock'
 
 const BUILDER_API_KEY = 'bc7237c5a10c4007b34450d1db757d25'
 builder.init(BUILDER_API_KEY)
@@ -28,6 +30,42 @@ export async function getStaticProps({
     revalidate: 5,
   }
 }
+
+Builder.registerComponent(FeaturedCategoryBlock, {
+  name: "category-block",
+  inputs: [
+    {
+      name: "heading",
+      type: "string",
+    },
+    {
+      name: "paragraph",
+      type: "string",
+    },
+    {
+      name: "link",
+      type: "string",
+    },
+    {
+      name: "linkText",
+      type: "string",
+    },
+    {
+      name: "color",
+      type: "string",
+    },
+    {
+      name: "featuredImage",
+      type: "file",
+      allowedFileTypes: ["jpeg", "png"],
+    },
+    {
+      name: "position",
+      type: "string",
+      enum: ["left", "right"],
+    },
+  ],
+});
 
 //The getStaticPaths() function returns a list of pages, omits unnecessary data for creating the list, 
 //and with fallback: true, checks Builder for any new pages you might have added.
@@ -61,6 +99,7 @@ export default function Page({
       </>
     )
   }
+  
 
   return (
     <>
